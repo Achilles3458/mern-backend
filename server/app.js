@@ -7,12 +7,14 @@ const DB = 'mongodb+srv://elu:Aelaf007@cluster0.ohaj8yc.mongodb.net/mernstack?re
 mongoose.connect(DB).then(() =>{
     console.log(`connection successful`)
 }).catch((err) =>console.log(`error in connection`));
+
+// if showing deprication warning
 // {
 //     useNewUrlParser: true,
 //     userCreateIndex: true,
 //     useUnifiedTopology: true,
 //     useFindAndModify: false
-// } if showing deprication warning
+// } 
 
 // Middleware 
 
