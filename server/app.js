@@ -1,12 +1,14 @@
-const mongoose = require('mongoose')
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
-const port = 3000;
 
-const DB = 'mongodb+srv://elu:Aelaf007@cluster0.ohaj8yc.mongodb.net/mernstack?retryWrites=true&w=majority';
-mongoose.connect(DB).then(() =>{
-    console.log(`connection successful`)
-}).catch((err) =>console.log(`error in connection`));
+dotenv.config({path:'./config.env'});
+require('./db/conn');
+// const User  = require('./model/userSchema');
+
+const PORT = process.env.PORT;
+
 
 // if showing deprication warning
 // {
@@ -40,6 +42,6 @@ app.get('/signup', (req,res)=>{
     res.send(`Hello World, this is elaf a MERN Stack dev, signup page`);
 });
 
-app.listen(port, ()=>{
-    console.log(`server is running at ${port}`)
+app.listen(PORT, ()=>{
+    console.log(`server is running at ${PORT}`)
 })
