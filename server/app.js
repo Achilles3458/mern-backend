@@ -7,6 +7,11 @@ dotenv.config({path:'./config.env'});
 require('./db/conn');
 // const User  = require('./model/userSchema');
 
+app.use(express.json());
+
+// To link router files we need this middleware
+app.use(require('./router/auth'));
+
 const PORT = process.env.PORT;
 
 
@@ -25,10 +30,6 @@ const middleware = (req,res,next) =>{
     next();
 }
 
-
-app.get('/',(req,res)=>{
-    res.send(`Hello World, this is elaf a MERN Stack developer`);
-});
 app.get('/about', middleware, (req,res)=>{
     res.send(`Hello World, this is elaf a MERN Stack dev, and this is my about section`);
 });
