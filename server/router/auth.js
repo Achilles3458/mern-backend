@@ -1,14 +1,61 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/',(req,res)=>{
+require('../db/conn');
+const User = require("../model/userSchema");
+
+router.get('/', (req, res) => {
     res.send(`Hello World, this is elaf a MERN Stack developer from router`);
 });
+// Using promises
 
-router.post('/register', (req,res) =>{
-    console.log(req.body);
-    res.json({message: req.body})
-    // res.send('My register page');
+// router.post('/register', (req,res) =>{
+//     const {name, email, phone, work, password, cpassword} = req.body;
+
+//     if(!name || !email || !phone || !work || !password || !cpassword){
+//         return res.status(422).json({error:"Please fill the form"});
+//     }
+
+//     User.findOne({email:email})
+//     .then((userExist) => {
+//         if(userExist){
+//             return res.status(422).json({error:"Email already exist"});
+//         }
+
+//         const user = new User({name, email, phone, work, password, cpassword});
+
+//         user.save().then(() =>{
+//             res.status(201).json({message: "User registered successfully"});
+//         }).catch((err) => res.status(500).json({error: "Registration failed"}));
+//     }).catch(err =>{console.log(err)});
+
+// });
+
+// Using async await
+
+router.post('/register', async (req, res) => {
+    const { name, email, phone, work, password, cpassword } = req.body;
+
+    if (!name || !email || !phone || !work || !password || !cpassword) {
+        return res.status(422).json({ error: "Please fill the form properly" });
+    }
+    try {
+        const userExist = await User.findOne({ email: email });
+
+        if (userExist) {
+            return res.status(422).json({ error: "Email already exist" });
+        }
+        const user = new User({ name, email, phone, work, password, cpassword });
+
+        await user.save();
+
+        return res.status(201).json({ message: "User registered successfully" });
+
+    } catch (err) {
+        console.log(err);
+    }
+
 });
+
 
 module.exports = router;
