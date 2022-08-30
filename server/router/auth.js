@@ -80,6 +80,11 @@ router.post('/signin', async (req, res) => {
 
             const token = await userLogin.generateAuthToken();
 
+            res.cookie("jwtoken", token, {
+                expires: new Date(Date.now() + 25892000000),
+                httpOnly: true
+            });
+
             if (!isMatch) {
                 res.status(400).json({ error: "Invalid Credientials" });
             } else {
