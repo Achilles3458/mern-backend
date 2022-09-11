@@ -41,10 +41,10 @@ const Contact = () => {
                 <h1>Get in Touch</h1>
               </div>
               <form id='contact_form'>
-                  <div className="contact_form_name d-flex justify-content-between align-items-between">
-                    <input type="text" id='contact_form_name' className='contact_form_name input_field' placeholder='Your name' required="true"/>
-                    <input type="email" id='contact_form_email' className='contact_form_email input_field' placeholder='Your email id' required="true"/>
-                    <input type="number" id='contact_form_phone' className='contact_form_phone input_field' placeholder='Your phone number' required="true"/>
+                  <div className="contact_form_name col-auto d-flex justify-content-between align-items-between">
+                    <input type="text" id='contact_form_name' className='contact_form_name input_field form-control' placeholder='Your name' required="true"/>
+                    <input type="email" id='contact_form_email' className='contact_form_email input_field form-control' placeholder='Your email id' required="true"/>
+                    <input type="number" id='contact_form_phone' className='contact_form_phone input_field form-control' placeholder='Your phone number' required="true"/>
                   </div>
                   <div className="contact_form_text mt-4">
                     <textarea name="text_field contact_form_message" id="" cols="123" rows="7"></textarea>
