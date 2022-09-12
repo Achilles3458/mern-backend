@@ -59,6 +59,7 @@ const About = () => {
                       <p>46411179678197</p>
                     </div>
                   </div>
+                  <hr />
                   <div className="row mt-3">
                     <div className="col-md-6">
                       <label>Name</label>
@@ -67,6 +68,7 @@ const About = () => {
                       <p>SK Elaf Ahmed</p>
                     </div>
                   </div>
+                  <hr />
                   <div className="row mt-3">
                     <div className="col-md-6">
                       <label>Email</label>
@@ -75,6 +77,7 @@ const About = () => {
                       <p>eluOp99@gmail.com</p>
                     </div>
                   </div>
+                  <hr />
                   <div className="row mt-3">
                     <div className="col-md-6">
                       <label>Phone</label>
@@ -83,6 +86,7 @@ const About = () => {
                       <p>97845612665</p>
                     </div>
                   </div>
+                  <hr />
                   <div className="row mt-3">
                     <div className="col-md-6">
                       <label>Profession</label>
@@ -91,6 +95,7 @@ const About = () => {
                       <p>Web Developer</p>
                     </div>
                   </div>
+                  <hr />
                 </div>
               </div>
             </div>

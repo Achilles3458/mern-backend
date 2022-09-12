@@ -30,7 +30,7 @@ const Login = () => {
                   <input type="password" name='password' id='password' autoCapitalize='off' placeholder='Your Password'/>
                 </div>
                 <div className="from-group from-button">
-                  <input type="submit" name='signin' id='signin' className='form-submit' value="Log in" />
+                  <input type="submit" name='signin' id='signin' className='form-submit btn btn-primary' value="Log in" />
                 </div>
               </form>
             </div>

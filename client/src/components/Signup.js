@@ -45,10 +45,10 @@ const Signup = () => {
                   <label htmlFor="cpassword">
                     <i className='zmdi zmdi-lock material-icons-name'></i>
                   </label>
-                  <input type="cpassword" name='cpassword' id='cpassword' autoCapitalize='off' placeholder='Confirm Your Password'/>
+                  <input type="cpassword" name='cpassword' id='cpassword' autoCapitalize='off' placeholder='Confirm Password'/>
                 </div>
                 <div className="from-group from-button">
-                  <input type="submit" name='signup' id='signup' className='form-submit' value="Register" />
+                  <input type="submit" name='signup' id='signup' className='form-submit btn btn-primary' value="Register" />
                 </div>
               </form>
             </div>
@@ -56,7 +56,7 @@ const Signup = () => {
                 <figure>
                   <img src={computer} alt="registrationpic"/>
                 </figure>
-                <NavLink to= "/login" classNames='signup-image-link'>I am already registered</NavLink>
+                <button className='btn btn-light'><NavLink to= "/login" classNames='signup-image-link'>I am already registered</NavLink></button>
               </div>
           </div>
         </div>

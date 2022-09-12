@@ -3,3 +3,59 @@
     padding: 0;
 }
 
+.signup{
+    display: flex;
+    padding: 10px;
+}
+.signup-content{
+    margin: auto;
+    display: flex;
+    float: right;
+}
+.register-form{
+    margin: 10px;
+}
+.signup-content{
+    margin: auto;
+}
+.signup-form{
+    margin-right: 250px;
+}
+label{
+    padding-right: 15px;
+}
+.form-title{
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bolder;
+}
+.sign-content{
+    display: flex;
+    justify-content: center;
+}
+.sign-image{
+    margin-right: 250px;
+}
+.contact_form_container{
+    text-align: center;
+}
+#signin{
+    margin-left: 50px;
+}
+#signup{
+    margin-left: 50px;
+}
+.home-div{
+    width: 100%;
+    min-height: 60vh;
+    background: linear-gradient(
+    to right,
+    white 0%,
+    rgb(211, 209, 209) 50%,
+    paleturquoise 50%,
+    rgb(231, 252, 252) 100%
+  );
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
