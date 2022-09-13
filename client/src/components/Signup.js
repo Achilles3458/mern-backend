@@ -1,8 +1,19 @@
-import React from 'react'
+import React,{useState} from 'react'
 import computer from "../images/computer.jpg"
 import { NavLink } from 'react-router-dom'
 
 const Signup = () => {
+  const [user,setUser] = useState({
+    name:"",email:"",phone:"",work:"",password:"",cpassword:""
+  });
+  let name,value;
+  const handleInputs = (e) =>{
+    name = e.target.name;
+    value = e.target.value;
+
+    setUser({...user,[name]:value})
+  }
+
   return (
     <>
       <section className="signup">
@@ -15,37 +26,37 @@ const Signup = () => {
                   <label htmlFor="name">
                     <i className='zmdi zmdi-account material-icons-name'></i>
                   </label>
-                  <input type="text" name='name' id='name' autoCapitalize='off' placeholder='Your Name'/>
+                  <input type="text" name='name' id='name' autoComplete='off' value={user.name} onChange={handleInputs} placeholder='Your Name'/>
                 </div>
                 <div className="form-group">
                   <label htmlFor="email">
                     <i className='zmdi zmdi-email material-icons-name'></i>
                   </label>
-                  <input type="email" name='email' id='email' autoCapitalize='off' placeholder='Your Email'/>
+                  <input type="email" name='email' id='email' autoComplete='off' value={user.email} onChange={handleInputs} placeholder='Your Email'/>
                 </div>
                 <div className="form-group">
                   <label htmlFor="phone">
                     <i className='zmdi zmdi-phone-in-talk material-icons-name'></i>
                   </label>
-                  <input type="number" name='phone' id='phone' autoCapitalize='off' placeholder='Your Phone Number'/>
+                  <input type="number" name='phone' id='phone' autoComplete='off' value={user.phone} onChange={handleInputs} placeholder='Your Phone Number'/>
                 </div>
                 <div className="form-group">
                   <label htmlFor="work">
                     <i className='zmdi zmdi-slideshow material-icons-name'></i>
                   </label>
-                  <input type="text" name='work' id='work' autoCapitalize='off' placeholder='Your Profession'/>
+                  <input type="text" name='work' id='work' autoComplete='off' value={user.work} onChange={handleInputs} placeholder='Your Profession'/>
                 </div>
                 <div className="form-group">
                   <label htmlFor="password">
                     <i className='zmdi zmdi-lock material-icons-name'></i>
                   </label>
-                  <input type="password" name='password' id='password' autoCapitalize='off' placeholder='Your Password'/>
+                  <input type="password" name='password' id='password' autoComplete='off' value={user.password} onChange={handleInputs} placeholder='Your Password'/>
                 </div>
                 <div className="form-group">
                   <label htmlFor="cpassword">
                     <i className='zmdi zmdi-lock material-icons-name'></i>
                   </label>
-                  <input type="cpassword" name='cpassword' id='cpassword' autoCapitalize='off' placeholder='Confirm Password'/>
+                  <input type="cpassword" name='cpassword' id='cpassword' autoComplete='off' value={user.cpassword} onChange={handleInputs} placeholder='Confirm Password'/>
                 </div>
                 <div className="from-group from-button">
                   <input type="submit" name='signup' id='signup' className='form-submit btn btn-primary' value="Register" />
