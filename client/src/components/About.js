@@ -1,19 +1,52 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import profile1 from "../images/profile1.jpg"
+import profile2 from "../images/profile2.jpg"
+import { useHistory } from "react-router-dom";
 const About = () => {
+
+  const history = useHistory();
+  const [userData, setUserData] = useState(0);
+  const callAboutPage = async () => {
+    try {
+      const res = await fetch('/about', {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        credentials: "include"
+      });
+      const data = await res.json();
+      console.log(data);
+      setUserData(data);
+
+      if (!res.status === 200) {
+        const error = new Error(res.error);
+        throw error;
+      }
+    } catch (err) {
+      console.log(err);
+      history.push('/login');
+    }
+  }
+  useEffect(() =>{
+    callAboutPage();
+  });
+
+
   return (
     <>
       <div className="container emp-profile">
-        <form method=''>
+        <form method="GET">
           <div className="row">
             <div className="col-md-4">
-              <img src={profile1} alt="profile1" />
+              <img src={userData.name === "Sk Elaf Ahmed" ? profile1 : profile2} alt="profile1" />
             </div>
             <div className="col-md-6">
               <div className="profile-head">
-                <h4>Sk Elaf Ahmed</h4>
-                <h5>Web developer</h5>
-                <p className='profile-rating mt-3 mb-5'>RANKINGS: <span>1/10</span></p>
+                <h4>{userData.name}</h4>
+                <h5>{userData.work}</h5>
+                <p className='profile-rating mt-3 mb-5'>RANKINGS: <span>8/10</span></p>
 
                 <ul className="nav" role="tablist">
                   <li className="nav-item">
@@ -26,25 +59,25 @@ const About = () => {
               </div>
             </div>
             <div className="col-md-2">
-              <input type="submit" className='btn btn-info' name='btnAddMore' value="Edit Profile"/>
+              <input type="submit" className='btn btn-info' name='btnAddMore' value="Edit Profile" />
             </div>
           </div>
 
           <div className="row">
             {/* left side url */}
 
-              <div className="col-md-4">
-                <div className="profile-work">
-                  <p>WORK LINK</p>
-                  <a href="https://github.com/Elu007" target="github">GitHub</a> <br />
-                  <a href="https://github.com/Elu007" target="github">Instagram</a> <br />
-                  <a href="https://github.com/Elu007" target="github">LinkedIn</a> <br />
-                  <a href="https://github.com/Elu007" target="github">LeetCode</a> <br />
-                  <a href="https://github.com/Elu007" target="github">Geeks For Geeks</a> <br />
-                  <a href="https://github.com/Elu007" target="github">Hackerrank</a> <br />
-                  <a href="https://github.com/Elu007" target="github">CodeChef</a> <br />
-                </div>
+            <div className="col-md-4">
+              <div className="profile-work">
+                <p>WORK LINK</p>
+                <a href="https://github.com/Elu007" target="github">GitHub</a> <br />
+                <a href="https://github.com/Elu007" target="github">Instagram</a> <br />
+                <a href="https://github.com/Elu007" target="github">LinkedIn</a> <br />
+                <a href="https://github.com/Elu007" target="github">LeetCode</a> <br />
+                <a href="https://github.com/Elu007" target="github">Geeks For Geeks</a> <br />
+                <a href="https://github.com/Elu007" target="github">Hackerrank</a> <br />
+                <a href="https://github.com/Elu007" target="github">CodeChef</a> <br />
               </div>
+            </div>
 
 
             {/* Right side data toogle */}
@@ -65,7 +98,7 @@ const About = () => {
                       <label>Name</label>
                     </div>
                     <div className="col-md-6">
-                      <p>SK Elaf Ahmed</p>
+                      <p>{userData.name}</p>
                     </div>
                   </div>
                   <hr />
@@ -74,7 +107,7 @@ const About = () => {
                       <label>Email</label>
                     </div>
                     <div className="col-md-6">
-                      <p>eluOp99@gmail.com</p>
+                      <p>{userData.email}</p>
                     </div>
                   </div>
                   <hr />
@@ -83,7 +116,7 @@ const About = () => {
                       <label>Phone</label>
                     </div>
                     <div className="col-md-6">
-                      <p>97845612665</p>
+                      <p>{userData.phone}</p>
                     </div>
                   </div>
                   <hr />
@@ -92,7 +125,7 @@ const About = () => {
                       <label>Profession</label>
                     </div>
                     <div className="col-md-6">
-                      <p>Web Developer</p>
+                      <p>{userData.work}</p>
                     </div>
                   </div>
                   <hr />

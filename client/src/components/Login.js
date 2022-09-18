@@ -6,8 +6,9 @@ const Login = () => {
   const history = useHistory();
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
+
   const loginUser = async (e) =>{
-    e.preventDefault(0);
+    e.preventDefault();
     const res = await fetch('/signin',{
       method:"POST",
       headers:{

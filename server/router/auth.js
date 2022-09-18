@@ -1,7 +1,9 @@
 const jwt = require('jsonwebtoken');
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+const authenticate = require("../middleware/authenticate");
+const cookieParser = require("cookie-parser");
 
 require('../db/conn');
 const User = require("../model/userSchema");
@@ -9,6 +11,7 @@ const User = require("../model/userSchema");
 router.get('/', (req, res) => {
     res.send(`Hello World, this is elaf a MERN Stack developer from router`);
 });
+
 // Using promises
 
 // router.post('/register', (req,res) =>{
@@ -99,6 +102,15 @@ router.post('/signin', async (req, res) => {
         console.log(err);
     }
 })
+
+// Very important as we use cookie parser otherwise it won't work
+router.use(cookieParser());
+
+// About us page
+router.get('/about', authenticate,(req,res)=>{
+    // console.log(`Hello World, this is elaf a MERN Stack dev, and this is my about section`);
+    res.send(req.rootUser);
+});
 
 
 module.exports = router;

@@ -14,25 +14,6 @@ app.use(require('./router/auth'));
 
 const PORT = process.env.PORT;
 
-
-// if showing deprication warning
-// {
-//     useNewUrlParser: true,
-//     userCreateIndex: true,
-//     useUnifiedTopology: true,
-//     useFindAndModify: false
-// } 
-
-// Middleware 
-
-const middleware = (req,res,next) =>{
-    console.log(`my middle ware`);
-    next();
-}
-
-app.get('/about', middleware, (req,res)=>{
-    res.send(`Hello World, this is elaf a MERN Stack dev, and this is my about section`);
-});
 app.get('/contact', (req,res)=>{
     res.send(`Hello World, this is elaf a MERN Stack dev, contact me`);
 });
