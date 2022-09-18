@@ -68,7 +68,7 @@ const About = () => {
 
             <div className="col-md-4">
               <div className="profile-work">
-                <p>WORK LINK</p>
+                <p>WORK LINKS</p>
                 <a href="https://github.com/Elu007" target="github">GitHub</a> <br />
                 <a href="https://github.com/Elu007" target="github">Instagram</a> <br />
                 <a href="https://github.com/Elu007" target="github">LinkedIn</a> <br />

@@ -45,6 +45,9 @@ label{
 #signup{
     margin-left: 60px;
 }
+img{
+    padding-right: 20px;
+}
 .home-div{
     width: 100%;
     min-height: 60vh;
