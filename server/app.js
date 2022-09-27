@@ -14,9 +14,9 @@ app.use(require('./router/auth'));
 
 const PORT = process.env.PORT;
 
-app.get('/contact', (req,res)=>{
-    res.send(`Hello World, this is elaf a MERN Stack dev, contact me`);
-});
+// app.get('/contact', (req,res)=>{
+//     res.send(`Hello World, this is elaf a MERN Stack dev, contact me`);
+// });
 app.get('/signin', (req,res)=>{
     res.send(`Hello World, this is elaf a MERN Stack dev, login/signin page`);
 });
