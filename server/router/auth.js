@@ -8,9 +8,6 @@ const cookieParser = require("cookie-parser");
 require('../db/conn');
 const User = require("../model/userSchema");
 
-router.get('/', (req, res) => {
-    res.send(`Hello World, this is elaf a MERN Stack developer from router`);
-});
 
 // Using promises
 
